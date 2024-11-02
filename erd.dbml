@@ -1,0 +1,27 @@
+
+Table users {
+    Id int pk
+    Name varchar
+    Email varchar
+    Cohort int
+}
+
+Table topics {
+    Id int pk
+    Name varchar
+}
+
+Table posts {
+    Id int pk
+    Title varchar
+    Body text
+    PostDate date
+    UserId int [ref: > users.Id]
+    TopicId int [ref: > topics.Id]
+}
+
+Table likes {
+    Id int pk
+    UserId int [ref: > users.Id]
+    PostId int [ref: > posts.Id]
+}
